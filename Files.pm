@@ -52,3 +52,50 @@ sub strip_whitespace{
 }
 
 1;
+=head1 NAME
+
+Files - a module of File helper methods 
+
+=head1 AUTHOR
+
+Dan MacLean (dan.maclean@tsl.ac.uk)
+
+=head1 SYNOPSIS
+
+	use FileSysTools::Files;
+	my $dir = '/home/macleand';
+	my @files = Files::get_array_of_files($dir);
+
+=head1 DESCRIPTION
+
+The Files module contains routines for carrying out some frequent file related tasks.
+The module does not create objects like some of the other modules, rather its methods are accessed in the manner of subroutines in external files.
+
+=head1 METHODS
+
+=over
+
+=item get_array_of_files(dir)
+
+returns an array of the files in the directory dir
+
+	my $dir = '/home/macleand/Desktop';
+	my @files = Files::get_array_of_files($dir);
+
+=item slurp_list_file_into_hash(file)
+
+Takes a file and loads it into a hash, each line in the file becomes a key in the hash
+
+	my $file = 'myfile';
+	my %hash = Files::slurp_list_file_into_hash($file);
+
+=item strip_whitespace(line)
+
+Removes whitespace from a provided string.
+
+	my $string = "Do you know the way to San Jose?";
+	my $new_string = strip_whitespace($string);
+
+=back
+
+
